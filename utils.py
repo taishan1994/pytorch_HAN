@@ -24,7 +24,7 @@ def adj_to_bias(adj, sizes, nhood=1):
                     mt[g][i][j] = 1.0
     return -1e9 * (1.0 - mt)
 
-def load_data_dblp(path='/data02/gob/ACM3025.mat'):
+def load_data_dblp(path='data/ACM3025.mat'):
     data = sio.loadmat(path)
     #truelabels：[3025,3] truefeatures:[3025,1870]
     truelabels, truefeatures = data['label'], data['feature'].astype(float)

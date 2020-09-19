@@ -18,11 +18,6 @@ class Attn_head(nn.Module):
         self.coef_dropout = nn.Dropout(coef_drop)
         self.activation = activation
         
-        """
-        for m in self.modules():
-            if isinstance(m, nn.Conv1d):
-                nn.init.kaiming_normal_(m.weight, mode="fan_out")
-        """
 
     def forward(self,x):
         seq = x.float()
@@ -67,9 +62,9 @@ class SimpleAttLayer(nn.Module):
         self.reset_parameters()
    
     def reset_parameters(self):
-       nn.init.kaiming_uniform_(self.w_omega)
+       nn.init.xavier_uniform_(self.w_omega)
        nn.init.zeros_(self.b_omega)
-       nn.init.kaiming_uniform_(self.u_omega)
+       nn.init.xavier_uniform_(self.u_omega)
 
     def forward(self,x):
         #print("x.shape:",x.shape)

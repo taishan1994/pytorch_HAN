@@ -1,5 +1,6 @@
 import torch
-import trch.nn as nn
+import torch.nn as nn
+from layer import *
 
 class HeteGAT_multi(nn.Module):
     def __init__(self, inputs_list, nb_classes, nb_nodes, attn_drop, ffd_drop,

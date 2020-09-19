@@ -2,7 +2,35 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from model import *
+from utils import *
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+#device = "cpu"
+
+adj_list, fea_list, y_train, y_val, y_test, train_mask, val_mask, test_mask, my_data = load_data_dblp()
+nb_nodes = fea_list[0].shape[0] #节点数目 3025
+ft_size = fea_list[0].shape[1] #特征的维度 1870
+nb_classes = y_train.shape[1]  #标签的数目 3
+
+fea_list = [torch.transpose(torch.from_numpy(fea[np.newaxis]),2,1).to(device) for fea in fea_list]
+#fea_list = torch.from_numpy(np.array(fea_list)).to(device)
+adj_list = [adj[np.newaxis] for adj in adj_list]
+y_train = y_train[np.newaxis]
+y_val = y_val[np.newaxis]
+y_test = y_test[np.newaxis]
+#train_mask = train_mask[np.newaxis]
+#val_mask = val_mask[np.newaxis]
+#test_mask = test_mask[np.newaxis]
+
+my_labels = my_data['my_labels']
+train_my_labels = my_data['train_my_labels']
+val_my_labels = my_data['val_my_labels']
+test_my_labels = my_data['test_my_labels']
+
+
+biases_list = [torch.transpose(torch.from_numpy(adj_to_bias(adj, [nb_nodes], nhood=1)),2,1).to(device) for adj in adj_list]
+print(len(biases_list))
 
 dataset = 'acm'
 featype = 'fea'
