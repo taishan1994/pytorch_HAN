@@ -1,7 +1,8 @@
 # pytorch_HAN
 一位热心git友指出之前问题是过拟合了，修改以下地方得到以下结果：
 
-
+![1.image](https://github.com/taishan1994/pytorch_HAN/blob/master/images/1.png)
+![2.image](https://github.com/taishan1994/pytorch_HAN/blob/master/images/2.png)
 
 不过，别人都是在train训练，在test测试，咋回事呢？
 
