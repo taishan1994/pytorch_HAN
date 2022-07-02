@@ -1,4 +1,12 @@
 # pytorch_HAN
+一位热心git友指出之前问题是过拟合了，修改以下地方得到以下结果：
+
+
+
+不过，别人都是在train训练，在test测试，咋回事呢？
+
+****
+
 Paper address:<br>
 <a href="https://github.com/Jhy1993/Representation-Learning-on-Heterogeneous-Graph">https://github.com/Jhy1993/Representation-Learning-on-Heterogeneous-Graph</a><br>
 Heterogeneous Graph Attention Network (HAN) with pytorch. If you want to pursue the performance in the original paper, 
@@ -64,7 +72,6 @@ epoch:026, loss:0.4888, TrainAcc:0.8333, ValLoss:4.5965, ValAcc:0.0033
 ```
 This is where the problem lies.<br>
 If you know how to solve this problem, please don't hesitate to tell me.
-
 
 
 
